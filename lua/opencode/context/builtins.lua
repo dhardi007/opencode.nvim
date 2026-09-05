@@ -23,7 +23,7 @@ end
 ---The buffer.
 ---@param context opencode.context.Context
 function M.buffer(context)
-  return context.format({ buf = context.buf, rel = context.server.cwd })
+  return context.format({ buf = context.buf })
 end
 
 ---All open buffers.
@@ -31,7 +31,7 @@ end
 function M.buffers(context)
   local file_list = {}
   for _, buf in ipairs(vim.fn.getbufinfo({ buflisted = 1 })) do
-    local path = context.format({ buf = buf.bufnr, rel = context.server.cwd })
+    local path = context.format({ buf = buf.bufnr })
     if path then
       table.insert(file_list, path)
     end
