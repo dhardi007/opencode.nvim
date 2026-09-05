@@ -10,12 +10,11 @@ function M.this(context)
       from[2] = context.range.from[2] + 1
       to[2] = context.range.to[2] + 1
     end
-    return context.format({ buf = context.buf, from = from, to = to, rel = context.server.cwd })
+    return context.format({ buf = context.buf, from = from, to = to })
   else
     return context.format({
       buf = context.buf,
       from = { context.cursor[1], context.cursor[2] + 1 },
-      rel = context.server.cwd,
     })
   end
 end
